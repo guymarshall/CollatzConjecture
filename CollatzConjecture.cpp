@@ -27,8 +27,19 @@ int main()
     int userInput;
     std::cin >> userInput;
 
+    int maxNumber = 0;
+    int maxSteps = 0;
+
     for (int i = 1; i <= userInput; i++)
     {
-        printf("%d: %d\n", i, collatz(i));
+        if (maxSteps < collatz(i))
+        {
+            maxSteps = collatz(i);
+            maxNumber = i;
+        }
+        //printf("%d: %d\n", i, collatz(i));
+        //std::cout << i << ": " << collatz(i) << std::endl;
     }
+
+    std::cout << maxNumber << " had the maximum number of steps at " << maxSteps << std::endl;
 }
